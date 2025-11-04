@@ -20,6 +20,7 @@ get_read_info_from_name <- function(names){
   base = basename(names)
   read_direction = stringr::str_extract(string = base, "[_\\.](R[12])[$\\._]", group = 1)
   lane = stringr::str_extract(string = base, "[_\\.](L[0-9][0-9][0-9])[$\\._]", group = 1)
+  lane[is.na(lane)] <- "lane_not_found"
   data.frame(lane = lane, read_direction = read_direction, name = base)
 }
 
