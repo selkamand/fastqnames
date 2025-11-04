@@ -1,0 +1,48 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# fastqnames
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Take a set of names of fasta/fastq files from a single sample and extract lane & read direction information
+
+## Installation
+
+You can install the development version of fastqnames like so:
+
+``` r
+if (!require("remotes"))
+    install.packages("remotes")
+
+remotes::install_github("selkamand/fastqnames")
+```
+
+## Quick Start
+
+```{r}
+library(fastqnames)
+
+# Example filenames from a sequencer
+fnames <- example_names()
+
+# Extract lane and read info
+get_read_info_from_name(fnames)
+
+# Sort FASTQs into R1/R2 pairs by lane
+sort_reads_into_pairs(fnames)
+```
+
